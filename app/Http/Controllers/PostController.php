@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     /**
@@ -13,16 +15,87 @@ class PostController extends Controller
     {
         //
         $post = Post::all();
+        $postid = Post::find(3);
+        $postcond = Post::findOrFail(3);
+        $postfirst = Post::first();
+        $postcondition = Post::where('id',3)->first();
+        $postMultiCon = Post::where('id',3)
+                            ->where('id',3)
+                            ->get();
+        $postMultiConOr = Post::where('id',3)
+                            ->orWhere('user_id',1)
+                            ->get();
+        $postselect = Post::select('title','user_id')->get();
+
+       // latest data created_at des
+       $postLatest = Post::latest()->get();
+       $postold = Post::oldest()->get();
+       $limit = Post::take(5)->get();
+       $skipandlimit = Post::skip(5)->take(10)->get();
+
+      
+        
         return view('post/post',compact('post'));
     }
+public function study()
+{
+    // create new data
+      Post::create([
+        'name' => 'name',
+      ]);
 
+
+      //object method
+      $post = new Post;
+      $post->title  = 'insert data';
+      $post->save();
+
+    //single data update
+    $post = Post::find(3);
+    $post->title = 'updated';
+    $post->save();
+
+    //direct update
+    Post::where('id',3)->update([
+        'title' => 'test'
+    ]);
+
+    //delete by id
+
+    Post::find(3)->delete();
+
+    //destroy method
+    Post::destroy(3);
+    Post::destroy([3,4,5]);
+
+    //count
+    $count = Post::count();
+
+    $countId = Post::where('user_id',1)->count();
+
+    //exit check kore data ase kina
+
+    Post::exists();
+    Post::where('id',3)->exits();
+
+    //pagination very important
+
+    Post::paginate(10);
+    Post::simplePaginate(10);
+
+    //only one column, only value ane so fast kaj kore
+    Post::pluck('title','id');
+
+}
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
-        return view('post/create');
+        $user = User::all();
+        // dd($user);
+        return view('post/create',compact('user'));
     }
 
     /**
@@ -45,6 +118,7 @@ class PostController extends Controller
         }
         Post::create([
             'title' => $request->title,
+            'user_id' => $request->user,
             'description' => $request->description,
             'image' => $imagePath
         ]);
@@ -93,7 +167,8 @@ class PostController extends Controller
     $post->update([
         'title' => $request->title,
         'description' => $request->description,
-        'image' => $imagePath
+        'image' => $imagePath,
+        'user_id' => Auth::id()
     ]);
 
     return redirect()->route('posts.index');

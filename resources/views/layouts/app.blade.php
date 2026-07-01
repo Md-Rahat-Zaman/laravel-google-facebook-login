@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <link href="{{ asset('tabler/css/tabler.min.css') }}" rel="stylesheet">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -32,5 +32,24 @@
                 {{ $slot }}
             </main>
         </div>
+     @include('partials.sidebar')
+
+    <div class="page-wrapper">
+
+        @include('partials.navbar')
+
+        <div class="page-body">
+            <div class="container-xl">
+
+                @yield('content')
+
+            </div>
+        </div>
+
+        @include('partials.footer')
+
+    </div>
+
+    <script src="{{ asset('tabler/js/tabler.min.js') }}"></script>
     </body>
 </html>

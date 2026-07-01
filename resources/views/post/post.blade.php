@@ -1,8 +1,10 @@
+<link rel="stylesheet" href="{{ asset('tabler/css/tabler.min.css') }}">
 <h1>Post List</h1>
 
     <table>
         <thead>
             <th>Id</th>
+            <th>User</th>
             <th>Item</th>
             <th>Description</th>    
             <th>Image</th>
@@ -11,6 +13,7 @@
             @foreach ($post as $value)
             <tr>
                 <td>{{ $value->id }}</td>
+                <td>{{ $value->user->name ?? 'N/A' }}</td>
                 <td>{{ $value->title }}</td>
                 <td>{{ $value->description }}</td>
                
@@ -34,3 +37,11 @@
         </tbody>
         
     </table>
+<h1>Post User</h1>
+<h1 style="color:green">Hello sinan</h1>
+
+{{-- <h1>My Post</h1>
+<h3>{{ auth()->user()->posts }}</h3>
+<h3>{{ auth()->user()->posts[0]->title }}</h3>
+<h3>{{ auth()->user()->posts->count() }}</h3> --}}
+<script src="{{ asset('tabler/js/tabler.min.js') }}"></script>

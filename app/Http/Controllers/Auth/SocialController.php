@@ -10,13 +10,15 @@ class SocialController extends Controller
 {
     
 
-            public function redirectToGoogle()
+            public function redirectToGoogle(Request $request)
             {
+                // dd($request->url());
                 return Socialite::driver('google')->redirect();
             }
 
-            public function handleGoogleCallback()
+            public function handleGoogleCallback(Request $request)
             {
+                // dd($request->url());
                 $socialUser = Socialite::driver('google')->user();
 
                 $user = User::updateOrCreate(
