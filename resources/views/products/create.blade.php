@@ -15,7 +15,7 @@
                     @csrf
                     <div class="row g-3">
                         <div class="col-md-4 col-sm-4 col-4">
-                            <label class="g-1">Product Name</label>
+                            <x-form.label required>Product Name</x-form.label>
                             <input class="form-control" name="name" placeholder="Product Name" value="{{ old('name') }}">
                         </div>
                         

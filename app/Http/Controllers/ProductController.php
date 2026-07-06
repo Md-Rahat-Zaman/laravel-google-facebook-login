@@ -33,8 +33,8 @@ class ProductController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required || string || max:255',
-            'sprice' => 'required || numeric || min:0',
+            'name' => 'required | string | max:255',
+            'sprice' => 'required | numeric | min:0',
             'pprice' => 'required|numeric|min:0',
             'category' => 'required|string|max:255',
             'note' => 'nullable|string',
@@ -61,7 +61,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        dd('edit');
+        $product = Product::findOrFail($product->id);
+        return view('products.edit',compact('product'));
     }
 
     /**
@@ -70,14 +71,36 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $request->validate([
+            'name' => 'required | string | max:255',
+            'sprice' => 'required | numeric | min:0',
+            'pprice' => 'required|numeric|min:0',
+            'category' => 'required|string|max:255',
+            'note' => 'nullable|string',
+            'description' => 'nullable|string',
+            'opening_stock' => 'required|numeric|min:0',
+            'status' =>'nullable'
+            
+        ]);
+        // $product->update($request->all()); // form theke ja asbe sob update korbe
+        $product->name = $request->name;
+        $product->sprice = $request->sprice;
+        $product->pprice = $request->pprice;
+        $product->category = $request->category;
+        $product->note = $request->note;
+        $product->description = $request->description;
+        $product->save();
+
+        return redirect()->route('products.index')->with("success", "Product Update Succesfully");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
-    {
-        //
-        dd('destroy');
-    }
+public function destroy(Product $product)
+{
+    $product->delete();
+
+    return redirect()->back()->with('success', 'Product deleted successfully.');
+}
 }

@@ -9,8 +9,13 @@
         </button>
 
         <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Log Out</button>
+                </form>
+            </li>
         </ul>
 
     </div>
