@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light shadow-sm px-3">
+<nav class="navbar navbar-light shadow-sm px-3">
 
     <span class="navbar-brand">Dashboard</span>
 
