@@ -1,93 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>@yield('title', 'Inventory System')</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    {{-- // breaze authentication ar design ar jonno tailwind --}}
-    <script src="https://cdn.tailwindcss.com"></script> 
-    {{-- // breaze authentication ar design ar jonno --}}
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
-    <style>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 
-        body{
-            overflow-x:hidden;
-        }
-       
-        .main-content{
-            margin-left:230px;y
-        }
-       .sidebar{
-            width:230px;
-            min-height:100vh;
-            position:fixed;
-            left:0;
-            top:0;
-            background: linear-gradient(
-                                180deg,
-                                #1e293b 0%,
-                                #0f172a 100%
-                            );
-        }
+    <meta name="csrf-token"
+          content="{{ csrf_token() }}">
 
-        .navbar-fixed{
-            position:fixed;
-            left:230px;
-            right:0;
-            top:0;
-            z-index:1000;
-            /* background:linear-gradient(90deg,#2563eb,#1d4ed8); */
-            /* background: linear-gradient(90deg, #1d4ed8, #3b82f6); */
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-        }
+    <title>
+        @yield('title', 'Inventory System')
+    </title>
 
-        .sidebar a:hover{
-                background:#334155;
-                border-left:4px solid #3b82f6;
-            }
+    <!-- Bootstrap CSS -->
 
-        .sidebar a:hover{
-            background:#334155;
-            color:#fff;
-        }
-        
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
-        .content-area {
-            margin-top: 70px;
-            padding: 20px;
-        }
-    </style>
+    <!-- Bootstrap Icons -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+    <!-- Dashboard CSS -->
+
+    <link rel="stylesheet"
+          href="{{ asset('build/assets/css/dashboard.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ asset('build/assets/css/sidebar.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ asset('build/assets/css/navbar.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ asset('build/assets/css/responsive.css') }}">
+
+    @stack('styles')
+
 </head>
-{{-- 
+
 <body>
 
-    {{-- SIDEBAR --}}
-    <div class="sidebar  text-white">
-        @include('partials.sidebar_b')
-    </div>
+    {{-- Sidebar --}}
+    @include('partials.sidebar_b')
 
-    {{-- MAIN AREA --}}
-    <div class="main-content">
+    {{-- Main --}}
+    <div class="main-wrapper">
 
-        {{-- NAVBAR --}}
-        <div class="navbar-fixed">
-            @include('partials.navbar_b')
-        </div>
+        {{-- Navbar --}}
+        @include('partials.navbar_b')
 
-        {{-- CONTENT --}}
-        <div class="content-area">
+        {{-- Page Content --}}
+        <main class="content-wrapper">
+
             @yield('content')
-        </div>
 
-        {{-- FOOTER --}}
+        </main>
+
+        {{-- Footer --}}
         @include('partials.footer_b')
 
     </div>
 
+    <!-- Bootstrap JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-</body> 
+    <!-- Dashboard JS -->
+
+    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+
+    @stack('scripts')
+
+</body>
 
 </html>

@@ -17,6 +17,11 @@
                         <div class="col-md-4 col-sm-4 col-4">
                             <x-form.label required>Product Name</x-form.label>
                             <input class="form-control" name="name" placeholder="Product Name" value="{{ old('name') }}">
+                            @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         
                         <div class="col-md-4 col-sm-4 col-4">

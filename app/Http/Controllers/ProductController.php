@@ -33,8 +33,8 @@ class ProductController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required | string | max:255',
-            'sprice' => 'required | numeric | min:0',
+            'name' => 'required|string|max:255',
+            'sprice' => 'required|numeric|min:0',
             'pprice' => 'required|numeric|min:0',
             'category' => 'required|string|max:255',
             'note' => 'nullable|string',
