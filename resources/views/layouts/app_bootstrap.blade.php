@@ -38,7 +38,7 @@
 
     <link rel="stylesheet"
           href="{{ asset('build/assets/css/responsive.css') }}">
-
+    <<script src="{{ asset('build/assets/js/dashboard.js') }}"></script>
     @stack('styles')
 
 </head>
