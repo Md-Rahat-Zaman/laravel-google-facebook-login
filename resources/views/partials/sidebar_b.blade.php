@@ -1,4 +1,4 @@
-```blade
+
 <div class="sidebar p-3">
 
     <h4 class="text-center mb-4">Inventory</h4>
@@ -17,7 +17,7 @@
         {{-- Products --}}
         <li class="nav-item sidebar-menu">
 
-            <a href="#" class="nav-link sidebar-menu-toggle">
+            <a href="" class="nav-link sidebar-menu-toggle">
                 <i class="bi bi-box-seam me-2"></i>
                 <span>Products</span>
                 <i class="bi bi-chevron-right menu-arrow"></i>
@@ -33,7 +33,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('products.create') }}" class="nav-link">
                         <i class="bi bi-plus-circle me-2"></i>
                         Add Product
                     </a>

@@ -8,7 +8,7 @@
     </div>
     <div class="card shadow mt-4">
         <div class="card-header">
-                <h3>Create product</h3>
+                {{-- <h3>Create product</h3> --}}
         </div>
         <div class="card-body">
                 <form method="POST" action="{{ route('products.store') }}" >
