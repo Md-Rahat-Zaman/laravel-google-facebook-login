@@ -1,60 +1,447 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+```blade
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Login | Inventory Management System</title>
+
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ asset('build/assets/css/login.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="login-wrapper">
+
+
+    <div class="login-card">
+
+
+        <!-- =================================
+             LEFT INFORMATION PANEL
+        ================================= -->
+
+        <div class="login-info">
+
+
+            <div class="brand">
+
+                <div class="brand-icon">
+
+                    <i class="bi bi-boxes"></i>
+
+                </div>
+
+
+                <div>
+
+                    <div class="brand-name">
+                        Inventory System
+                    </div>
+
+                    <span class="brand-subtitle">
+                        MANAGEMENT PLATFORM
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <h1>
+
+                Manage your inventory
+                <span>smarter.</span>
+
+            </h1>
+
+
+            <p>
+
+                Control your products, stock, purchases,
+                sales and business operations from one
+                powerful inventory management platform.
+
+            </p>
+
+
+            <div class="feature-list">
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-box-seam"></i>
+
+                    <span>
+                        Complete Product Management
+                    </span>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-bar-chart-line"></i>
+
+                    <span>
+                        Real-time Stock Monitoring
+                    </span>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-cart-check"></i>
+
+                    <span>
+                        Sales & Purchase Management
+                    </span>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-graph-up-arrow"></i>
+
+                    <span>
+                        Powerful Business Reports
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <!-- =================================
+             RIGHT LOGIN PANEL
+        ================================= -->
+
+        <div class="login-form-area">
+
+
+            <div class="login-form">
+
+
+                <div class="form-heading">
+
+                    <h2>
+                        Welcome back
+                    </h2>
+
+                    <p>
+                        Sign in to access your inventory dashboard.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Laravel Login Form -->
+
+                <form method="POST"
+                      action="{{ route('login') }}">
+
+                    @csrf
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email"
+                               class="form-label">
+
+                            Email Address
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+
+                                value="{{ old('email') }}"
+
+                                required
+                                autofocus
+                                autocomplete="username"
+
+                                class="form-input"
+
+                                placeholder="Enter your email"
+                            >
+
+
+                            <i class="bi bi-envelope input-icon"></i>
+
+                        </div>
+
+
+                        @if ($errors->get('email'))
+
+                            <div class="error-message">
+
+                                {{ $errors->first('email') }}
+
+                            </div>
+
+                        @endif
+
+                    </div>
+
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <label for="password"
+                               class="form-label">
+
+                            Password
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+
+                                required
+
+                                autocomplete="current-password"
+
+                                class="form-input"
+
+                                placeholder="Enter your password"
+                            >
+
+
+                            <i class="bi bi-lock input-icon"></i>
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword()">
+
+                                <i class="bi bi-eye"
+                                   id="passwordIcon"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        @if ($errors->get('password'))
+
+                            <div class="error-message">
+
+                                {{ $errors->first('password') }}
+
+                            </div>
+
+                        @endif
+
+                    </div>
+
+
+
+                    <!-- Remember / Forgot -->
+
+                    <div class="form-options">
+
+
+                        <label class="remember-label">
+
+                            <input
+                                id="remember_me"
+                                type="checkbox"
+                                name="remember"
+
+                                class="remember-checkbox"
+                            >
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+
+                        @if (Route::has('password.request'))
+
+                            <a
+                                href="{{ route('password.request') }}"
+                                class="forgot-link">
+
+                                Forgot password?
+
+                            </a>
+
+                        @endif
+
+
+                    </div>
+
+
+
+                    <!-- Login -->
+
+                    <button
+                        type="submit"
+                        class="login-btn">
+
+                        <i class="bi bi-box-arrow-in-right"></i>
+
+                        Sign In
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- Divider -->
+
+                <div class="divider">
+
+                    OR CONTINUE WITH
+
+                </div>
+
+
+
+                <!-- Social Login -->
+
+                <div class="social-buttons">
+
+
+                    <a
+                        href="{{ url('/auth/google') }}"
+                        class="social-btn">
+
+                        <i class="bi bi-google google-icon"></i>
+
+                        Google
+
+                    </a>
+
+
+                    <a
+                        href="{{ url('/auth/facebook') }}"
+                        class="social-btn">
+
+                        <i class="bi bi-facebook facebook-icon"></i>
+
+                        Facebook
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- Register -->
+
+                @if (Route::has('register'))
+
+                    <div class="register-text">
+
+                        Don't have an account?
+
+                        <a href="{{ route('register') }}">
+
+                            Create account
+
+                        </a>
+
+                    </div>
+
+                @endif
+
+
+            </div>
+
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+    </div>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-    <div class="text-center mt-3">
-    <p class="mb-3 text-gray-600">Or login with</p>
-
-    <a href="{{ url('/auth/google') }}"
-       class="block w-full mb-2 bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded transition">
-        Login with Google
-    </a>
-
-    <a href="{{ url('/auth/facebook') }}"
-       class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition">
-        Login with Facebook
-    </a>
 </div>
-</x-guest-layout>
+
+
+
+<!-- =================================
+     PASSWORD SCRIPT
+================================= -->
+
+<script>
+
+function togglePassword()
+{
+    const password =
+        document.getElementById('password');
+
+    const icon =
+        document.getElementById('passwordIcon');
+
+
+    if (password.type === 'password') {
+
+        password.type = 'text';
+
+        icon.classList.remove('bi-eye');
+
+        icon.classList.add('bi-eye-slash');
+
+    } else {
+
+        password.type = 'password';
+
+        icon.classList.remove('bi-eye-slash');
+
+        icon.classList.add('bi-eye');
+
+    }
+}
+
+</script>
+
+
+</body>
+
+</html>
