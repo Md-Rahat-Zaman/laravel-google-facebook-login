@@ -23,7 +23,7 @@
                     rgba(15, 23, 42, .90),
                     rgba(30, 64, 175, .78)
                 ),
-                url("https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=2000&q=85")
+                url("/uploads/register/register.avif")
                 center center / cover no-repeat;
 
             display: flex;
@@ -146,8 +146,7 @@
                     rgba(15, 23, 42, .92),
                     rgba(30, 64, 175, .88)
                 ),
-                url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85")
-                center / cover;
+               url("/uploads/register/register1200.avif") center / cover;
         }
 
 
