@@ -1,0 +1,168 @@
+/* ==========================================
+   Sidebar
+========================================== */
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+
+    background-color: #1e293b;
+
+    color: #ffffff;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    overflow-y: auto;
+
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   Sidebar Title
+========================================== */
+
+.sidebar h4 {
+    font-size: 24px;
+    font-weight: 700;
+
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   Navigation
+========================================== */
+
+.sidebar .nav {
+    gap: 2px !important;
+}
+
+/* ==========================================
+   Navigation Link
+========================================== */
+
+.sidebar .nav-link {
+
+    color: #d1d6d5 !important;
+
+    padding: 10px 16px; /* upore and niche 12px gap dane and bame 16 px */
+
+    border-radius: 8px;
+
+    transition: all 3s ease;
+}
+
+/* ==========================================
+   Hover
+========================================== */
+
+.sidebar .nav-link:hover {
+
+    background-color: #365533;
+
+    color: #ded8d8 !important;
+}
+
+/* ==========================================
+   Active Link
+========================================== */
+
+.sidebar .nav-link.active {
+
+    background-color: #2563eb;
+
+    color: #ffffff !important;
+}
+
+
+.sidebar {
+    background: #1e293b;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.sidebar h4 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Main menu */
+.sidebar .nav-link {
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.sidebar .nav-link:hover {
+    background: #334155;
+    color: #ffffff;
+}
+
+/* Dashboard active */
+.sidebar > .nav > .nav-item > .nav-link.active {
+    background: #334155;
+    color: #ffffff;
+}
+
+/* Parent menu */
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu-toggle {
+    cursor: pointer;
+}
+
+/* Arrow */
+.menu-arrow {
+    margin-left: auto;
+    font-size: 12px;
+    transition: transform 0.25s ease;
+}
+
+/* Submenu */
+.sidebar-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 5px 0;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height 0.3s ease;
+}
+
+/* Open submenu */
+.sidebar-menu.open > .sidebar-submenu {
+    max-height: 500px;
+}
+
+/* Rotate arrow */
+.sidebar-menu.open > .sidebar-menu-toggle .menu-arrow {
+    transform: rotate(90deg);
+}
+
+/* Submenu links */
+.sidebar-submenu .nav-link {
+    font-size: 14px;
+    padding: 8px 12px 8px 38px;
+    margin-bottom: 2px;
+    color: #94a3b8;
+}
+
+/* Submenu hover */
+.sidebar-submenu .nav-link:hover {
+    background: #334155;
+    color: #ffffff;
+}
+
+/* Icons */
+.sidebar .bi {
+    flex-shrink: 0;
+}
