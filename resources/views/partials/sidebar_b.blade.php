@@ -1,4 +1,4 @@
-
+```blade
 <div class="sidebar p-3">
 
     <h4 class="text-center mb-4">Inventory</h4>
