@@ -28,17 +28,22 @@
     <!-- Dashboard CSS -->
 
     <link rel="stylesheet"
-          href="{{ asset('build/assets/css/dashboard.css') }}">
+          href="{{ asset('build/assets/css/element/dashboard.css') }}">
 
     <link rel="stylesheet"
-          href="{{ asset('build/assets/css/sidebar.css') }}">
+          href="{{ asset('build/assets/css/element/sidebar.css') }}">
 
     <link rel="stylesheet"
-          href="{{ asset('build/assets/css/navbar.css') }}">
+          href="{{ asset('build/assets/css/element/navbar.css') }}">
 
     <link rel="stylesheet"
-          href="{{ asset('build/assets/css/responsive.css') }}">
-    <<script src="{{ asset('build/assets/js/dashboard.js') }}"></script>
+          href="{{ asset('build/assets/css/element/responsive.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ asset('build/assets/css/product/product-form.css') }}">  
+    <link rel="stylesheet"
+          href="{{ asset('build/assets/css/product/product-list.css') }}">      
+    <script src="{{ asset('build/assets/js/dashboard.js') }}"></script>
     @stack('styles')
 
 </head>

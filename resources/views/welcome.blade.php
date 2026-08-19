@@ -23,7 +23,7 @@
 
 
     <link rel="stylesheet"
-          href="{{ asset('build/assets/css/welcome.css') }}">
+          href="{{ asset('build/assets/css/element/welcome.css') }}">
 
 </head>
 

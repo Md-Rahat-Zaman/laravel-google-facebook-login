@@ -15,25 +15,25 @@
 
 
         {{-- Products --}}
-        <li class="nav-item sidebar-menu">
+        <li class="nav-item sidebar-menu {{ request()->routeIs('products.*') ? 'open' : '' }}">
 
-            <a href="" class="nav-link sidebar-menu-toggle">
+            <a href="" class="nav-link sidebar-menu-toggle ">
                 <i class="bi bi-box-seam me-2"></i>
                 <span>Products</span>
                 <i class="bi bi-chevron-right menu-arrow"></i>
             </a>
 
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu ">
 
                 <li>
-                    <a href="{{ route('products.index') }}" class="nav-link">
+                    <a href="{{ route('products.index') }}" class="nav-link {{ request()->routeIs('products.index') ? 'active' : '' }}">
                         <i class="bi bi-list me-2"></i>
                         Product List
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('products.create') }}" class="nav-link">
+                    <a href="{{ route('products.create') }}" class="nav-link {{ request()->routeIs('products.create') ? 'active' : '' }}">
                         <i class="bi bi-plus-circle me-2"></i>
                         Add Product
                     </a>

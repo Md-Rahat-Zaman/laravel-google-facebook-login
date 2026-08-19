@@ -20,7 +20,7 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
           rel="stylesheet">
-    <link href="{{ asset('build/assets/css/register.css') }}"
+    <link href="{{ asset('build/assets/css/element/register.css') }}"
             rel="stylesheet">
 
 
