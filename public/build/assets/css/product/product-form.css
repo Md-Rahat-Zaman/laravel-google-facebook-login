@@ -1,0 +1,177 @@
+/* ================================
+   Common Form Page
+================================ */
+
+.form-create-page {
+    min-height: calc(100vh - 70px);
+    padding: 25px 0 40px;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(13, 110, 253, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(25, 135, 84, 0.08), transparent 30%),
+        #f5f7fb;
+}
+
+/* Page Header */
+.form-page-header {
+    margin-bottom: 20px;
+}
+
+.form-page-header h3 {
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.form-page-header p {
+    color: #64748b;
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* Main Card */
+.form-card {
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Card Header */
+.form-header {
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    color: #fff;
+}
+
+.form-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.form-header p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+/* Form Body */
+.form-body {
+    padding: 28px;
+}
+
+/* Field */
+.form-field {
+    margin-bottom: 4px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* Input / Select / Textarea */
+.form-field .form-control,
+.form-field .form-select {
+    min-height: 46px;
+    border: 1px solid #dbe2ea;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    background: #fff;
+    transition: all 0.25s ease;
+}
+
+.form-field textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Hover */
+.form-field .form-control:hover,
+.form-field .form-select:hover {
+    border-color: #b8c4d2;
+}
+
+/* Focus */
+.form-field .form-control:focus,
+.form-field .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.10);
+}
+
+/* Invalid */
+.form-field .form-control.is-invalid,
+.form-field .form-select.is-invalid {
+    border-color: #dc3545;
+}
+
+.form-field .form-control.is-invalid:focus,
+.form-field .form-select.is-invalid:focus {
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.10);
+}
+
+/* Error */
+.form-field .invalid-feedback {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Submit Area */
+.form-submit-area {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #edf0f4;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Submit Button */
+.form-submit-btn {
+    min-width: 130px;
+    height: 45px;
+    border: 0;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(25, 135, 84, 0.20);
+}
+
+/* Back Button */
+.form-back-btn {
+    border-radius: 9px;
+    padding: 9px 18px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+
+    .form-create-page {
+        padding: 15px 0 30px;
+    }
+
+    .form-body {
+        padding: 20px 16px;
+    }
+
+    .form-page-header h3 {
+        font-size: 22px;
+    }
+
+    .form-submit-area {
+        flex-direction: column;
+    }
+
+    .form-submit-btn,
+    .form-back-btn {
+        width: 100%;
+    }
+}

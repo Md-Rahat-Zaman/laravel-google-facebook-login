@@ -1,0 +1,265 @@
+/* ================================
+   Product List Page
+================================ */
+
+.product-list-page {
+    min-height: calc(100vh - 70px);
+    padding: 25px 0 40px;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(13, 110, 253, 0.06),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(25, 135, 84, 0.06),
+            transparent 30%
+        ),
+        #f5f7fb;
+}
+
+
+/* ================================
+   Page Header
+================================ */
+
+.product-list-header {
+    margin-bottom: 20px;
+}
+
+.product-list-header h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.product-add-btn {
+    border-radius: 9px;
+    padding: 9px 18px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.product-add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(13, 110, 253, 0.20);
+}
+
+
+/* ================================
+   Product Card
+================================ */
+
+.product-list-card {
+    border: 0;
+    border-radius: 16px;
+    overflow: visible;
+    background: #ffffff;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.07);
+}
+
+
+/* ================================
+   Card Header
+================================ */
+
+.product-list-card-header {
+    padding: 18px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    background: #ffffff;
+    border-bottom: 1px solid #edf0f4;
+}
+
+
+/* ================================
+   Alert
+================================ */
+
+.product-list-alert {
+    margin: 15px 20px 0;
+    border-radius: 9px;
+    border: 0;
+}
+
+
+/* ================================
+   Table Wrapper
+================================ */
+
+.product-table-wrapper {
+    padding: 20px;
+    overflow-x: auto;
+}
+
+
+/* ================================
+   Table
+================================ */
+
+.product-table {
+    width: 100%;
+    margin: 0;
+    vertical-align: middle;
+    border-color: #e8edf3;
+}
+
+.product-table thead th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 13px 12px;
+    white-space: nowrap;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.product-table tbody td {
+    padding: 13px 12px;
+    font-size: 14px;
+    color: #475569;
+    vertical-align: middle;
+}
+
+
+/* Row Hover */
+
+.product-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.product-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+
+/* Product Name */
+
+.product-name {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+
+/* Category */
+
+.product-category {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #eef4ff;
+    color: #0d6efd;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Price */
+
+.product-price {
+    font-weight: 600;
+    color: #334155;
+}
+
+
+/* Stock */
+
+.product-stock {
+    display: inline-block;
+    min-width: 45px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #ecfdf3;
+    color: #198754;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+/* Note */
+
+.product-note {
+    max-width: 180px;
+    color: #64748b;
+}
+
+
+/* ================================
+   Action Dropdown
+================================ */
+
+.product-action-btn {
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+}
+
+.product-action-menu {
+    min-width: 140px;
+    padding: 6px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+}
+
+.product-action-menu .dropdown-item {
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.product-action-menu .dropdown-item:hover {
+    background: #f1f5f9;
+}
+
+
+/* Delete */
+
+.product-action-menu .delete-item {
+    color: #dc3545;
+}
+
+.product-action-menu .delete-item:hover {
+    background: #fff1f2;
+    color: #dc3545;
+}
+
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+
+    .product-list-page {
+        padding: 15px 0 30px;
+    }
+
+    .product-list-header h3 {
+        font-size: 21px;
+    }
+
+    .product-add-btn {
+        padding: 8px 13px;
+        font-size: 13px;
+    }
+
+    .product-list-card-header {
+        padding: 15px;
+    }
+
+    .product-table-wrapper {
+        padding: 12px;
+    }
+
+    .product-table thead th,
+    .product-table tbody td {
+        padding: 10px 9px;
+    }
+
+}
