@@ -1,3 +1,4 @@
+@import './component/quick_create.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

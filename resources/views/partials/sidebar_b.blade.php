@@ -1,4 +1,4 @@
-```blade
+
 <div class="sidebar p-3">
 
     <h4 class="text-center mb-4">Inventory</h4>
@@ -40,7 +40,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('categories.index') }}" class="nav-link">
                         <i class="bi bi-tags me-2"></i>
                         Categories
                     </a>
